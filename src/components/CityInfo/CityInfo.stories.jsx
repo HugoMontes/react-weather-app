@@ -5,7 +5,7 @@ import 'typeface-roboto'
 // Importar el componente CityInfo
 import CityInfo from './CityInfo'
 // Exportar el componente enviando un titulo y el coponente
-export default {
+export default CityInfo = {
     title: "CityInfo",
     component: CityInfo
 }
