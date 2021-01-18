@@ -1,5 +1,7 @@
 // importar el componente React "imr" + TAB
 import React from 'react'
+// importar la fuente roboto
+import 'typeface-roboto'
 // Importar el componente CityInfo
 import CityInfo from './CityInfo'
 // Exportar el componente enviando un titulo y el coponente
