@@ -8,11 +8,11 @@ import { render } from '@testing-library/react'
 // Se lo utilizara mas adelante
 import '@testing-library/jest-dom/extend-expect'
 // Armar el test
-test("Weather render", async () => {
+test("Weather render sunny", async () => {
     // Preparar el test
     // Como se espera un unico elemento y no un array
     // usar findByRole
-    const { findByRole } = render(<Weather temperature={10} />)
+    const { findByRole } = render(<Weather temperature={10} state="sunny" />)
     // Generar una constante para esperar el resultado de findByRole
     // obtener los elementos del tipo heading
     const temp = await findByRole("heading")
