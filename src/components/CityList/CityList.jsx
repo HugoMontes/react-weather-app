@@ -1,8 +1,8 @@
 // Generar la estructura del componente "rafcp" + TAB
 import React from 'react'
 import PropTypes from 'prop-types'
-import CityInfo from './..//CityInfo/CityInfo'
-import Weather from './../Weather/Weather'
+import CityInfo from './..//CityInfo'
+import Weather from './../Weather'
 
 // Crear una funcion renderizadora de ciudad y pais
 const renderCityAndCountry = cityAndCountry => {
