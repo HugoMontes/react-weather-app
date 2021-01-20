@@ -1,6 +1,8 @@
 // Generar la estructura del componente "rafcp" + TAB
 import React from 'react'
 import PropTypes from 'prop-types'
+// Importar el componente Grid para ajustar tamaños de pantalla
+import Grid from '@material-ui/core/Grid'
 import CityInfo from './..//CityInfo'
 import Weather from './../Weather'
 
@@ -10,10 +12,20 @@ const renderCityAndCountry = cityAndCountry => {
     const { city, country } = cityAndCountry
     // Retornar el componente CityInfo y Weater
     // Adicionar el key con city
+    // Adicionar Grid contenedor centrada
+    // Agregar un tamaño de 8 col. cuando >= sm eoc 12 col 
     return (
         <li key={city}>
-            <CityInfo city={city} country={country} />
-            <Weather temperature={10} state="sunny"/>
+            <Grid container
+                justify="center"
+                alignItems="center">
+                    <Grid item sm={8}>
+                        <CityInfo city={city} country={country} />
+                    </Grid>
+                    <Grid item sm={4}>
+                        <Weather temperature={10} state="sunny"/>
+                    </Grid>
+            </Grid>
         </li>
     )
 }
