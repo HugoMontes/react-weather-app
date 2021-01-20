@@ -8,6 +8,16 @@ import { WiCloud, WiDayCloudy, WiDayFog, WiDaySunny, WiRain } from 'react-icons/
 // Importar un proveedor de contexto para poner
 // un tamaño al icono
 import { IconContext } from 'react-icons'
+
+// Definir un array con los valores validos permitidos
+const validValues = [
+    "cloud",
+    "cloudy",
+    "fog",
+    "sunny",
+    "rain", 
+]
+
 // - Crear una constante objeto con distintas propiedades
 const stateByName = {
     cloud: WiCloud,
@@ -79,7 +89,8 @@ const Weather = ({ temperature ,state }) => {
 // Validar propiedades
 Weather.propTypes = {   
     temperature: PropTypes.number.isRequired,
-    state: PropTypes.string.isRequired
+    // Indicar los valores validos con oneOf
+    state: PropTypes.oneOf(validValues).isRequired
 }
 // Exportar componente
 export default Weather
