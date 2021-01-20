@@ -9,8 +9,9 @@ const renderCityAndCountry = cityAndCountry => {
     // Recibir city y country aplicando destructuring
     const { city, country } = cityAndCountry
     // Retornar el componente CityInfo y Weater
+    // Adicionar el key con city
     return (
-        <li>
+        <li key={city}>
             <CityInfo city={city} country={country} />
             <Weather temperature={10} state="sunny"/>
         </li>
