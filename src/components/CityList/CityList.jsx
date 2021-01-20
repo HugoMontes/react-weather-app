@@ -7,15 +7,17 @@ import CityInfo from './..//CityInfo'
 import Weather from './../Weather'
 
 // Crear una funcion renderizadora de ciudad y pais
-const renderCityAndCountry = cityAndCountry => {
+// renderCityAndCountry se va convertir en una funcion que retorna otra funcion
+const renderCityAndCountry = eventOnClickCity => cityAndCountry => {
     // Recibir city y country aplicando destructuring
     const { city, country } = cityAndCountry
     // Retornar el componente CityInfo y Weater
     // Adicionar el key con city
     // Adicionar Grid contenedor centrada
     // Agregar un tamaño de 8 col. cuando >= sm eoc 12 col 
+    // Escuchar el evento click invocando a la funcion eventOnClickCity
     return (
-        <li key={city}>
+        <li key={city} onClick={eventOnClickCity}>
             <Grid container
                 justify="center"
                 alignItems="center">
@@ -32,11 +34,13 @@ const renderCityAndCountry = cityAndCountry => {
 
 // Adicionar una lista no ordenada ul
 // cities: es un array y cada item tiene una ciudad y un pais
-const CityList = ({ cities }) => {
+// Agregar un nuevo parametro para la funcion
+const CityList = ({ cities, onClickCity }) => {
     return (
         <ul>
             { 
-                cities.map(cityAndCountry => renderCityAndCountry(cityAndCountry))
+                // Convertir a renderCityAndCountry en una funcion que retorna otra funcion
+                cities.map(cityAndCountry => renderCityAndCountry(onClickCity)(cityAndCountry))
             }
         </ul>
     )
@@ -45,6 +49,8 @@ const CityList = ({ cities }) => {
 CityList.propTypes = {
     // cities: escribir "ptar"+TAB
     cities: PropTypes.array.isRequired,
+    // Agregar la validacion de la funcion "ptfr"
+    onClickCity: PropTypes.func.isRequired,
 }
 
 export default CityList
